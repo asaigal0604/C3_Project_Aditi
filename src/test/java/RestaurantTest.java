@@ -65,5 +65,15 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
+//TDD Approach
+    @Test
+    public void when_items_are_being_selected_from_the_menu_then_total_price_for_order_should_be_returned() {
+        restaurant.addToMenu("Coke", 150);
+        String[] itemSelect = {"Coke", "Vegetable lasagne"};
+        int totalOrderValue = 0;
+        assertEquals(0, totalOrderValue);
+        totalOrderValue = restaurant.getOrderValue(itemSelect);
+        assertNotNull(totalOrderValue);
+        assertEquals(419, totalOrderValue);
+    }
 }
